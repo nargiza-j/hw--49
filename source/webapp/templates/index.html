@@ -13,9 +13,8 @@
               <h5 class="card-title">{{ task.summary }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Тип: {{ task.type.name }}</h6>
               <p class="card-text">Статус: {{ task.status.name }}</p>
-{#              <a href="{% url 'product_view' product.pk %}" class="card-link">More...</a>#}
+              <a href="{% url "task_view" task.pk %}" class="card-link">More...</a>
           </div>
         </div>
-{#        <a href="{% url "task_view" task.pk %}">More</a>#}
     {% endfor %}
 {% endblock %}
