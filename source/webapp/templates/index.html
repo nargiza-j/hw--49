@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if tasks %}
+        <h1>To Do List</h1>
+    {% else %}
+        <h1>No tasks</h1>
+    {% endif %}
+
+    {% for task in tasks %}
+        <p>{{ task.summary }}: {{ task.type.name }}</p>
+        <p>Статус: {{ task.status.name }}</p>
+
+{#        <a href="{% url "task_view" task.pk %}">More</a>#}
+    {% endfor %}
+{% endblock %}
