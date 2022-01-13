@@ -15,6 +15,7 @@
               <p class="card-text">Статус: {{ task.status.name }}</p>
               <a href="{% url "task_view" task.pk %}" class="card-link">More...</a>
               <a href="{% url "task_delete" task.pk %}" class="card-link">Delete</a>
+              <a href="{% url "task_update" task.pk %}" class="card-link">Update</a>
           </div>
         </div>
     {% endfor %}

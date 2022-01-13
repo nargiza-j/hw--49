@@ -13,7 +13,7 @@ class IndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        tasks = Task.objects.order_by('created_at')
+        tasks = Task.objects.order_by('-created_at')
         context['tasks'] = tasks
         return context
 
@@ -49,3 +49,26 @@ class TaskDeleteView(TemplateView):
         task.delete()
         return super().get(request)
 
+
+class TaskUpdateView(View):
+    def get(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs.get("pk"))
+        form = TaskForm(initial={
+            "summary": task.summary,
+            "description": task.description,
+            "status": task.status,
+            "type": task.type
+        })
+        return render(request, 'task_update.html', {'task': task, "form": form})
+
+    def post(self, request, *args, **kwargs):
+        form = TaskForm(data=request.POST)
+        task = get_object_or_404(Task, pk=kwargs['pk'])
+        if form.is_valid():
+            task.summary = form.cleaned_data.get('summary')
+            task.description = form.cleaned_data.get('description')
+            task.status = form.cleaned_data.get('status')
+            task.type = form.cleaned_data.get('type')
+            task.save()
+            return redirect('index')
+        return render(request, 'task_update.html', {"task": task, "form": form})

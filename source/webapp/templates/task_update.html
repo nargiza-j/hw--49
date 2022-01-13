@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Update task{% endblock %}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'task_view' task.pk %}">Return to Task</a>
+    </li>
+{% endblock %}
+{% block content %}
+    <h1>Update Task</h1>
+    <form method="POST">
+        {% include "partial/form.html" with button_text="Update" %}
+    </form>
+    <br>
+    <a href="{% url "index" %}">Return to main page</a>
+{% endblock %}
