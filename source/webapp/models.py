@@ -6,6 +6,9 @@ from django.db import models
 class Status(models.Model):
     name = models.CharField(max_length=200, verbose_name='Статус')
 
+    def __str__(self):
+        return f"{self.name}"
+
     class Meta:
         db_table = 'status'
         verbose_name = 'Статус'
@@ -14,6 +17,9 @@ class Status(models.Model):
 
 class Type(models.Model):
     name = models.CharField(max_length=300, verbose_name='Тип')
+
+    def __str__(self):
+        return f"{self.name}"
 
     class Meta:
         db_table = 'type'
