@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
+from django.views import View
 from django.views.generic import TemplateView
 
 from webapp.forms import TaskForm
@@ -27,22 +28,17 @@ class TaskView(TemplateView):
         return context
 
 
-# class TaskCreateView(TemplateView):
-#
-#     def get_context_data(self, **kwargs):
-#         if self.request.method == "GET":
-#             form = TaskForm()
-#             kwargs['form'] = form
-#             context = super().get_context_data(**kwargs)
-#             print(kwargs)
-#             return context
-#         else:
-#             form = TaskForm(data=self.request.POST)
-#             if form.is_valid():
-#                 kwargs['task'] = form.save()
-#                 context = super().get_context_data(**kwargs)
-#                 return context
-#             return render(self.request, "task_create.html", {'form': form})
+class TaskCreateView(View):
+    def get(self, request, *args, **kwargs):
+        form = TaskForm()
+        return render(request, 'task_create.html', {'form': form})
+
+    def post(self, request, *args, **kwargs):
+        form = TaskForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        return render(request, "task_create.html", {'form': form})
 
 
 class TaskDeleteView(TemplateView):
