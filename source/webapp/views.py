@@ -41,13 +41,13 @@ class TaskCreateView(View):
         return render(request, "task_create.html", {'form': form})
 
 
-class TaskDeleteView(TemplateView):
-    template_name = 'index.html'
-
-    def get(self, request, *args, **kwargs):
-        task = get_object_or_404(Task, pk=kwargs.get('pk'))
-        task.delete()
-        return super().get(request)
+# class TaskDeleteView(TemplateView):
+#     template_name = 'index.html'
+#
+#     def get(self, request, *args, **kwargs):
+#         task = get_object_or_404(Task, pk=kwargs.get('pk'))
+#         task.delete()
+#         return super().get(request)
 
 
 class TaskUpdateView(View):
@@ -72,3 +72,14 @@ class TaskUpdateView(View):
             task.save()
             return redirect('index')
         return render(request, 'task_update.html', {"task": task, "form": form})
+
+
+class TaskDeleteView(View):
+    def get(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs.get('pk'))
+        return render(request, "task_delete.html", {"task": task})
+
+    def post(self, request, *args, **kwargs):
+        task = get_object_or_404(Task, pk=kwargs['pk'])
+        task.delete()
+        return redirect("index")
