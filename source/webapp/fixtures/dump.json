@@ -1,0 +1,116 @@
+[
+{
+  "model": "webapp.status",
+  "pk": 1,
+  "fields": {
+    "name": "new"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 2,
+  "fields": {
+    "name": "in progress"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 3,
+  "fields": {
+    "name": "done"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 1,
+  "fields": {
+    "name": "Task"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 2,
+  "fields": {
+    "name": "Bug"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 3,
+  "fields": {
+    "name": "Enhancement"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 20,
+  "fields": {
+    "summary": "task1",
+    "description": "frjbrejk",
+    "status": 2,
+    "created_at": "2022-01-17T09:52:12.419Z",
+    "updated_at": "2022-01-17T09:52:12.419Z",
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 21,
+  "fields": {
+    "summary": "task2",
+    "description": "jfbjerbfrejk",
+    "status": 3,
+    "created_at": "2022-01-17T09:52:24.466Z",
+    "updated_at": "2022-01-17T09:52:24.466Z",
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 22,
+  "fields": {
+    "summary": "11111",
+    "description": "1111",
+    "status": 1,
+    "created_at": "2022-01-17T10:19:22.042Z",
+    "updated_at": "2022-01-17T10:19:22.042Z",
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 23,
+  "fields": {
+    "summary": "222",
+    "description": "222",
+    "status": 3,
+    "created_at": "2022-01-17T10:19:47.150Z",
+    "updated_at": "2022-01-17T10:35:19.079Z",
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 24,
+  "fields": {
+    "summary": "new task",
+    "description": "new task",
+    "status": 2,
+    "created_at": "2022-01-17T10:36:25.943Z",
+    "updated_at": "2022-01-17T10:36:25.943Z",
+    "type": [
+      2
+    ]
+  }
+}
+]
