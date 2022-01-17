@@ -15,7 +15,7 @@
 {% block content %}
     <h1>{{ task.summary}}</h1>
     <h5>Статус: {{ task.status.name }}</h5>
-    <h6>Тип задачи: {{ task.type.name }}</h6>
+    <h6>Тип задачи: {% for type in task.type.all %}{{ type.name }}{% if not forloop.last %},{% endif %}{% endfor %}</h6>
     <p>Описание:{{ task.description }}</p>
     <p>Дата создания:{{ task.created_at}}</p>
     <p>Дата обновления: {{ task.updated_at }}</p>
