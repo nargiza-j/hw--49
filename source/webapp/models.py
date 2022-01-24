@@ -1,5 +1,6 @@
-from django.core.validators import MinLengthValidator, MaxLengthValidator
 from django.db import models
+
+from webapp.validators import MinLengthValidator, MaxLengthValidator
 
 # Create your models here.
 
@@ -29,8 +30,10 @@ class Type(models.Model):
 
 
 class Task(models.Model):
-    summary = models.CharField(max_length=255, null=False, blank=False, verbose_name='Заголовок', validators=(MinLengthValidator(2),))
-    description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Описание', validators=(MaxLengthValidator(2000),))
+    summary = models.CharField(max_length=255, null=False, blank=False, verbose_name='Заголовок',
+                               validators=(MinLengthValidator(2),))
+    description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Описание',
+                                   validators=(MaxLengthValidator(2000),))
     status = models.ForeignKey('webapp.Status', related_name='status', on_delete=models.PROTECT, verbose_name='Статус')
     type = models.ManyToManyField('webapp.Type', related_name='tasks')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name="Дата создания")
