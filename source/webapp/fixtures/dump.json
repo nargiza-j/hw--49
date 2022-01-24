@@ -89,11 +89,11 @@
   "model": "webapp.task",
   "pk": 23,
   "fields": {
-    "summary": "222",
+    "summary": "222_updated",
     "description": "222",
     "status": 3,
     "created_at": "2022-01-17T10:19:47.150Z",
-    "updated_at": "2022-01-17T10:35:19.079Z",
+    "updated_at": "2022-01-24T07:49:36.934Z",
     "type": [
       1
     ]
@@ -110,6 +110,132 @@
     "updated_at": "2022-01-17T10:36:25.943Z",
     "type": [
       2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 25,
+  "fields": {
+    "summary": "call to boss",
+    "description": "",
+    "status": 1,
+    "created_at": "2022-01-20T11:07:33.331Z",
+    "updated_at": "2022-01-20T11:07:33.331Z",
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 26,
+  "fields": {
+    "summary": "44",
+    "description": "",
+    "status": 1,
+    "created_at": "2022-01-20T11:20:43.704Z",
+    "updated_at": "2022-01-20T11:20:43.704Z",
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 27,
+  "fields": {
+    "summary": "55",
+    "description": "The Australian Version of the popular Writing with Symbols 2000 software has some new features, in particular a set of Australian symbols and a spelling list for Australian users.\r\n\r\nIt remains as one of the most flexible support packages for literacy development, and can be used in four ways. An increasingly, schools are using it as a mainstream product, supporting their students with special learning, literacy and/or access needs. Primary schools have found that it offers a different approach to writing, reading and literacy development. It caters to students of all abilities, and helps in fully integrating students who have different needs. Special settings rely on it to provide a range of experiences to students with moderate to severe learning difficulties. Since its introduction quite a few years ago on MS Windows 3.1 computers, it has been the predominant choice for the majority of special schools in their communication and literacy ICT based programs. WWS 2000 Version 2.6 has a number of new additional features over and above the previous V2.0 package. The initial ‘look and feel’ at start-up has been a great success since that launch. The four main modes are clearly indicated and ready for use upon launching the program. They include:\r\n\r\nSymbol Processor: displaying PCS, Rebus or other symbol /graphic/photo wordlists, with voice support\r\nText Processor use with or without voice, with a pictorial spell checker. Functions as a word processor.\r\nGrids for Printing for printed media, including charts, tables, timetables, rosters, posters, badges, flash cards\r\nGrids for Writing use one or more onscreen grids for constructing text, with voice and graphic support\r\nThe user-friendly start-up screen directs and informs the user to the four different ways with which they can work with text, voice, symbols and grids. The WWS 2000 package accommodates a wide range of literacy and communication needs. It can be used in the classroom o",
+    "status": 2,
+    "created_at": "2022-01-20T11:22:40.859Z",
+    "updated_at": "2022-01-20T11:22:40.859Z",
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 29,
+  "fields": {
+    "summary": "wwww",
+    "description": "w",
+    "status": 3,
+    "created_at": "2022-01-20T11:57:11.667Z",
+    "updated_at": "2022-01-20T11:57:11.667Z",
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 32,
+  "fields": {
+    "summary": "qq",
+    "description": "q",
+    "status": 1,
+    "created_at": "2022-01-20T12:11:07.944Z",
+    "updated_at": "2022-01-20T12:11:07.944Z",
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 33,
+  "fields": {
+    "summary": "01",
+    "description": "",
+    "status": 3,
+    "created_at": "2022-01-24T06:27:02.637Z",
+    "updated_at": "2022-01-24T06:27:02.637Z",
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 34,
+  "fields": {
+    "summary": "new bug tut",
+    "description": "bug net",
+    "status": 1,
+    "created_at": "2022-01-24T08:11:11.066Z",
+    "updated_at": "2022-01-24T08:11:11.066Z",
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 35,
+  "fields": {
+    "summary": "Bug",
+    "description": "njn",
+    "status": 2,
+    "created_at": "2022-01-24T08:14:35.260Z",
+    "updated_at": "2022-01-24T08:14:35.260Z",
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 36,
+  "fields": {
+    "summary": "shopping",
+    "description": "shopping",
+    "status": 1,
+    "created_at": "2022-01-24T08:20:34.921Z",
+    "updated_at": "2022-01-24T08:47:10.751Z",
+    "type": [
+      1
     ]
   }
 }
