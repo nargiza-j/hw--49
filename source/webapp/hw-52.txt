@@ -1,0 +1,11 @@
+
+1. Task.objects.annotate(date_add_thirty_day=ExpressionWrapper(F("updated_at") + timedelta(days=30), output_field=DateTimeField())).filter(date_add_thirty_day__gte=timezone.now()).filter(status__name='done')
+2. Task.objects.filter(Q(status__name='in progress')|Q(status__name='done')).filter(Q(type__name='Bug')|Q(type__name='Enhancement')).distinct()
+3. Task.objects.filter(Q(summary__icontains='bug') | Q(type__name='Bug')).exclude(status__name='done')
+
+Bonus:
+1. No
+2. Task.objects.filter(summary=F('description'))
+3. type = Type.objects.annotate(Count('tasks'))
+   for t in type
+       t.tasks__count
