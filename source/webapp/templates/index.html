@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
     {% if tasks %}
         <h1>To Do List</h1>
     {% else %}
@@ -19,4 +23,7 @@
           </div>
         </div>
     {% endfor %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
 {% endblock %}
