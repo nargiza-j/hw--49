@@ -2,20 +2,20 @@ from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from webapp.forms import TaskForm
 from webapp.models import Task
 
 
-class IndexView(TemplateView):
+class IndexView(ListView):
+    model = Task
+    context_object_name = 'tasks'
     template_name = 'index.html'
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        tasks = Task.objects.order_by('-created_at')
-        context['tasks'] = tasks
-        return context
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        return queryset.order_by('-created_at')
 
 
 class TaskView(TemplateView):
