@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if projects %}
+        <h1>Projects</h1>
+    {% else %}
+        <h1>No project</h1>
+    {% endif %}
+
+    {% for project in projects %}
+        <div class="card border-success" style="width: 18rem;">
+          <div class="card-body text-success">
+              <h5 class="card-title">{{ project.name }}</h5>
+              <p class="card-text">Описание: {{ project.description }}</p>
+{#              <a href="{% url "task_view" task.pk %}" class="card-link">More...</a>#}
+{#              <a href="{% url "task_delete" task.pk %}" class="card-link">Delete</a>#}
+{#              <a href="{% url "task_update" task.pk %}" class="card-link">Update</a>#}
+          </div>
+        </div>
+    {% endfor %}
+{% endblock %}
