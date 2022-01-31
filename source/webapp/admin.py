@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from webapp.models import Task, Status, Type
+from webapp.models import Task, Status, Type, Project
 
 
 class TaskInline(admin.TabularInline):
@@ -24,3 +24,4 @@ class TypeAdmin(admin.ModelAdmin):
 admin.site.register(Task, TaskAdmin)
 admin.site.register(Status)
 admin.site.register(Type, TypeAdmin)
+admin.site.register(Project)
