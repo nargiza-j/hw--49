@@ -2,11 +2,12 @@ from django.db.models import Q
 from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
+from django.urls import reverse
 from django.views import View
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, CreateView
 
 from webapp.forms import TaskForm, SearchForm
-from webapp.models import Task
+from webapp.models import Task, Project
 
 
 class IndexView(ListView):
@@ -53,17 +54,18 @@ class TaskView(TemplateView):
         return context
 
 
-class TaskCreateView(View):
-    def get(self, request, *args, **kwargs):
-        form = TaskForm()
-        return render(request, 'tasks/task_create.html', {'form': form})
+class TaskCreateView(CreateView):
+    model = Task
+    form_class = TaskForm
+    template_name = 'tasks/task_create.html'
 
-    def post(self, request, *args, **kwargs):
-        form = TaskForm(data=request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('index')
-        return render(request, "tasks/task_create.html", {'form': form})
+    def form_valid(self, form):
+        project = get_object_or_404(Project, pk=self.kwargs.get("pk"))
+        form.instance.project = project
+        return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse('project_view', kwargs={"pk": self.object.project.pk})
 
 
 class TaskUpdateView(View):
