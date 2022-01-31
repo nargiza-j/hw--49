@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView, CreateView
 
+from webapp.forms import ProjectForm
 from webapp.models import Project
 
 
@@ -20,5 +21,8 @@ class ProjectView(DetailView):
         context['tasks'] = tasks
         return context
 
+
 class ProjectCreate(CreateView):
-    pass
+    model = Project
+    form_class = ProjectForm
+    template_name = 'projects/project_create.html'

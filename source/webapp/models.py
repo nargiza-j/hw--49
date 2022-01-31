@@ -1,6 +1,7 @@
 from datetime import date
 
 from django.db import models
+from django.urls import reverse
 
 from webapp.validators import MinLengthValidator, MaxLengthValidator
 
@@ -56,6 +57,9 @@ class Project(models.Model):
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Описание')
     date_start = models.DateField(default=date.today, verbose_name='Дата начала')
     date_end = models.DateField(null=True, blank=True, verbose_name="Дата окончания")
+
+    def get_absolute_url(self):
+        return reverse("project_view", kwargs={'pk': self.pk})
 
     def __str__(self):
         return f"{self.name}"

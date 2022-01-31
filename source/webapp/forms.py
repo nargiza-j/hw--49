@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import widgets
 
-from webapp.models import Task, Type
+from webapp.models import Task, Type, Project
 
 
 class TaskForm(forms.ModelForm):
@@ -15,3 +15,9 @@ class TaskForm(forms.ModelForm):
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=30, required=False, label='Поиск')
 
+
+class ProjectForm(forms.ModelForm):
+
+    class Meta:
+        model = Project
+        fields = "__all__"

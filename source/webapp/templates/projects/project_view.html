@@ -2,10 +2,9 @@
 
 {% block title %}Project {{ project.pk }}{% endblock %}
 {% block nav %}
-{#    <li class="nav-item">#}
-{#        <a class="nav-link" href="{% url 'task_add' %}">Add Task</a>#}
-{#    </li>#}
-
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'task_add' %}">Add Task</a>
+    </li>
 {% endblock %}
 {% block content %}
     <h1>{{ project.name}}</h1>
