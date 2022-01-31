@@ -12,8 +12,8 @@
         <div class="card border-success" style="width: 18rem;">
           <div class="card-body text-success">
               <h5 class="card-title">{{ project.name }}</h5>
-              <p class="card-text">Описание: {{ project.description }}</p>
-{#              <a href="{% url "task_view" task.pk %}" class="card-link">More...</a>#}
+              <p class="card-text">Описание:{{ project.description }}</p>
+              <a href="{% url "project_view" project.pk %}" class="card-link">More...</a>
 {#              <a href="{% url "task_delete" task.pk %}" class="card-link">Delete</a>#}
 {#              <a href="{% url "task_update" task.pk %}" class="card-link">Update</a>#}
           </div>
