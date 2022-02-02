@@ -14,6 +14,7 @@
               <h5 class="card-title">{{ project.name }}</h5>
               <p class="card-text">Описание:{{ project.description }}</p>
               <a href="{{ project.get_absolute_url }}" class="card-link">More...</a>
+              <a href="{% url "project_update" project.pk %}" class="card-link">Update</a>
           </div>
         </div>
     {% endfor %}
