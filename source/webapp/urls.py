@@ -3,6 +3,8 @@ from django.urls import path
 from webapp.views import IndexView, TaskView, TaskDeleteView, TaskCreateView, TaskUpdateView, ProjectList, ProjectView, \
     ProjectCreate, ProjectUpdate, ProjectDelete
 
+app_name = 'webapp'
+
 urlpatterns = [
     path('', ProjectList.as_view(), name="project_list"),
     path('project/<int:pk>/', ProjectView.as_view(), name="project_view"),

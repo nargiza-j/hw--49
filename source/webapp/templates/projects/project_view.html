@@ -3,13 +3,13 @@
 {% block title %}Project {{ project.pk }}{% endblock %}
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'project_task_add' project.pk %}">Add Task</a>
+        <a class="nav-link" href="{% url 'webapp:project_task_add' project.pk %}">Add Task</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'project_update' project.pk %}">Update Project</a>
+        <a class="nav-link" href="{% url 'webapp:project_update' project.pk %}">Update Project</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'project_delete' project.pk %}">Delete Project</a>
+        <a class="nav-link" href="{% url 'webapp:project_delete' project.pk %}">Delete Project</a>
     </li>
 {% endblock %}
 {% block content %}
@@ -25,9 +25,9 @@
               <h5 class="card-title">{{ task.summary }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Тип:{% for type in task.type.all %}{{ type.name }}{% if not forloop.last %},{% endif %}{% endfor %}</h6>
               <p class="card-text">Статус: {{ task.status.name }}</p>
-              <a href="{% url "task_view" task.pk %}" class="card-link">More...</a>
-              <a href="{% url "task_delete" task.pk %}" class="card-link">Delete</a>
-              <a href="{% url "task_update" task.pk %}" class="card-link">Update</a>
+              <a href="{% url "webapp:task_view" task.pk %}" class="card-link">More...</a>
+              <a href="{% url "webapp:task_delete" task.pk %}" class="card-link">Delete</a>
+              <a href="{% url "webapp:task_update" task.pk %}" class="card-link">Update</a>
           </div>
         </div>
         {% empty %}
@@ -35,5 +35,5 @@
         {% endfor %}
     </div>
     <br>
-    <a href="{% url "project_list" %}">Return to projects</a>
+    <a href="{% url "webapp:project_list" %}">Return to projects</a>
 {% endblock %}

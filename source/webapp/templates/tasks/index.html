@@ -18,9 +18,9 @@
               <h5 class="card-title">{{ task.summary }}</h5>
               <h6 class="card-subtitle mb-2 text-muted">Тип:{% for type in task.type.all %}{{ type.name }}{% if not forloop.last %},{% endif %}{% endfor %}</h6>
               <p class="card-text">Статус: {{ task.status.name }}</p>
-              <a href="{% url "task_view" task.pk %}" class="card-link">More...</a>
-              <a href="{% url "task_delete" task.pk %}" class="card-link">Delete</a>
-              <a href="{% url "task_update" task.pk %}" class="card-link">Update</a>
+              <a href="{% url "webapp:task_view" task.pk %}" class="card-link">More...</a>
+              <a href="{% url "webapp:task_delete" task.pk %}" class="card-link">Delete</a>
+              <a href="{% url "webapp:task_update" task.pk %}" class="card-link">Update</a>
           </div>
         </div>
     {% endfor %}

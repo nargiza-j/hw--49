@@ -3,7 +3,7 @@
 {% block title %}Update task{% endblock %}
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'task_view' task.pk %}">Return to Task</a>
+        <a class="nav-link" href="{% url 'webapp:task_view' task.pk %}">Return to Task</a>
     </li>
 {% endblock %}
 {% block content %}
@@ -12,5 +12,5 @@
         {% include "partial/form.html" with button_text="Update" %}
     </form>
     <br>
-    <a href="{% url "index"  %}">Return to tasks</a>
+    <a href="{% url "webapp:index" %}">Return to tasks</a>
 {% endblock %}

@@ -3,7 +3,7 @@
 {% block title %}Update project{% endblock %}
 {% block nav %}
     <li class="nav-item">
-        <a class="nav-link" href="{% url 'project_view' project.pk %}">Return to project</a>
+        <a class="nav-link" href="{% url 'webapp:project_view' project.pk %}">Return to project</a>
     </li>
 {% endblock %}
 {% block content %}
@@ -12,5 +12,5 @@
         {% include "partial/form.html" with button_text="Update" %}
     </form>
     <br>
-    <a href="{% url "project_list"  %}">Return to projects</a>
+    <a href="{% url "webapp:project_list"  %}">Return to projects</a>
 {% endblock %}

@@ -3,10 +3,10 @@
 {% block nav %}{% endblock %}
 
 {% block content %}
-    <form action="{% url "task_delete" task.pk %}" method="POST">
+    <form action="{% url "webapp:task_delete" task.pk %}" method="POST">
     {% csrf_token %}
         <h2>Are you sure want to delete {{ task.summary }} ?</h2>
         <input type="submit" value="Yes">
     </form>
-    <button><a class="no_button" href="{% url 'index' %}">No</a></button>
+    <button><a class="no_button" href="{% url 'webapp:index' %}">No</a></button>
 {% endblock %}

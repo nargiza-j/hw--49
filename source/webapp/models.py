@@ -59,7 +59,7 @@ class Project(models.Model):
     date_end = models.DateField(null=True, blank=True, verbose_name="Дата окончания")
 
     def get_absolute_url(self):
-        return reverse("project_view", kwargs={'pk': self.pk})
+        return reverse("webapp:project_view", kwargs={'pk': self.pk})
 
     def __str__(self):
         return f"{self.name}"

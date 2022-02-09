@@ -8,5 +8,5 @@
         <h2>Are you sure want to delete {{ project.name }} ?</h2>
         <input type="submit" value="Yes">
     </form>
-    <button><a class="no_button" href="{% url 'project_list' %}">No</a></button>
+    <button><a class="no_button" href="{% url 'webapp:project_list' %}">No</a></button>
 {% endblock %}
