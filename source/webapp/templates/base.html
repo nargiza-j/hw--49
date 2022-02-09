@@ -22,11 +22,19 @@
         <li class="nav-item">
             <a class="nav-link" href="{% url 'webapp:index' %}">To do list</a>
         </li>
-          {% block nav %}
-              <li class="nav-item">
+          {% block nav %}{% endblock %}
+        {% if not user.is_authenticated %}
+          <li class="nav-item">
+          <a class="nav-link" href="{% url 'accounts:login' %}">Вход</a>
+        </li>
+      {% else %}
+        <li class="nav-item">
           <a class="nav-link" href="{% url 'webapp:project_add' %}">Add Project</a>
         </li>
-           {% endblock %}
+       <li class="nav-item">
+           <a class="nav-link" href="{% url 'accounts:logout' %}">Выход</a>
+       </li>
+        {% endif %}
       </ul>
     </div>
   </div>
