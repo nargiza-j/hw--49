@@ -12,5 +12,5 @@
         {% include "partial/form.html" with button_text="Update" %}
     </form>
     <br>
-    <a href="{% url "webapp:index" %}">Return to tasks</a>
+    <a href="{% url "webapp:project_view" task.project.pk %}">Return to project</a>
 {% endblock %}

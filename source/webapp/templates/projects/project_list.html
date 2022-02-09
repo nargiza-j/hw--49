@@ -14,8 +14,10 @@
               <h5 class="card-title">{{ project.name }}</h5>
               <p class="card-text">Описание:{{ project.description }}</p>
               <a href="{{ project.get_absolute_url }}" class="card-link">More...</a>
+              {% if user.is_authenticated %}
               <a href="{% url "webapp:project_update" project.pk %}" class="card-link">Update</a>
               <a href="{% url "webapp:project_delete" project.pk %}" class="card-link">Delete</a>
+              {% endif %}
           </div>
         </div>
     {% endfor %}

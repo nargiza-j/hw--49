@@ -30,7 +30,7 @@ class ProjectCreate(LoginRequiredMixin, CreateView):
     template_name = 'projects/project_create.html'
 
 
-class ProjectUpdate(UpdateView):
+class ProjectUpdate(LoginRequiredMixin, UpdateView):
     model = Project
     template_name = 'projects/project_update.html'
     form_class = ProjectForm
@@ -40,7 +40,7 @@ class ProjectUpdate(UpdateView):
         return reverse('webapp:project_view', kwargs={'pk': self.object.pk})
 
 
-class ProjectDelete(DeleteView):
+class ProjectDelete(LoginRequiredMixin, DeleteView):
     model = Project
     template_name = "projects/project_delete.html"
     context_object_name = 'project'

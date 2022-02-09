@@ -11,5 +11,5 @@
     <p>Дата создания:{{ task.created_at}}</p>
     <p>Дата обновления: {{ task.updated_at }}</p>
     <br>
-    <a href="{% url "webapp:index" %}">Return to tasks</a>
+    <a href="{% url "webapp:project_view" task.project.pk %}">Return to project</a>
 {% endblock %}
