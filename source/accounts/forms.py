@@ -1,8 +1,18 @@
+from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UsernameField
 
 
 class MyUserCreationForm(UserCreationForm):
+    email = forms.EmailField(label="Email", required=True)
+
+    def clean(self):
+        cleaned_data = super().clean()
+        first_name = cleaned_data.get("first_name")
+        last_name = cleaned_data.get("last_name")
+        if not (first_name or last_name):
+            raise forms.ValidationError('Заполните хотя бы одно поле: first_name или last_name!')
+
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2',
