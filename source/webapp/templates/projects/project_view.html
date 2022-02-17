@@ -19,6 +19,11 @@
     <p>Дата начала:{{ project.date_start}}</p>
     <p>Дата окончания: {% if project.date_end %}{{ project.date_end }}{% endif %} </p>
     <p>Описание:{{ project.description }}</p>
+    <h6>Пользователи:{% for user in project.users.all %}{{ user.username }}{% if not forloop.last %},{% endif %}
+    {% empty %}
+            <p>No users yet.</p>
+    {% endfor %}
+    </h6>
     <h6>Tasks:</h6>
     <div>
         {% for task in tasks %}

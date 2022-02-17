@@ -21,6 +21,8 @@ class ProjectView(DetailView):
         context = super().get_context_data(**kwargs)
         tasks = self.object.tasks.all()
         context['tasks'] = tasks
+        # users = self.object.users.all()
+        # context['users'] = users
         return context
 
 
