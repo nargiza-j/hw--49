@@ -2,10 +2,13 @@ from datetime import date
 
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth import get_user_model
 
 from webapp.validators import MinLengthValidator, MaxLengthValidator
 
 # Create your models here.
+
+User = get_user_model()
 
 
 class Status(models.Model):
@@ -57,6 +60,11 @@ class Project(models.Model):
     description = models.TextField(max_length=2000, null=True, blank=True, verbose_name='Описание')
     date_start = models.DateField(default=date.today, verbose_name='Дата начала')
     date_end = models.DateField(null=True, blank=True, verbose_name="Дата окончания")
+    users = models.ManyToManyField(
+        User,
+        related_name="projects",
+        default=1,
+    )
 
     def get_absolute_url(self):
         return reverse("webapp:project_view", kwargs={'pk': self.pk})
