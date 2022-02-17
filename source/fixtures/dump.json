@@ -1,0 +1,302 @@
+[
+{
+  "model": "webapp.status",
+  "pk": 1,
+  "fields": {
+    "name": "new"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 2,
+  "fields": {
+    "name": "in progress"
+  }
+},
+{
+  "model": "webapp.status",
+  "pk": 3,
+  "fields": {
+    "name": "done"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 1,
+  "fields": {
+    "name": "Task"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 2,
+  "fields": {
+    "name": "Bug"
+  }
+},
+{
+  "model": "webapp.type",
+  "pk": 3,
+  "fields": {
+    "name": "Enhancement"
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 21,
+  "fields": {
+    "summary": "task2",
+    "description": "jfbjerbfrejk",
+    "status": 3,
+    "created_at": "2022-01-17T09:52:24.466Z",
+    "updated_at": "2022-01-31T11:22:54.403Z",
+    "project": 2,
+    "type": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 22,
+  "fields": {
+    "summary": "11111",
+    "description": "1111",
+    "status": 1,
+    "created_at": "2022-01-17T10:19:22.042Z",
+    "updated_at": "2022-01-17T10:19:22.042Z",
+    "project": 3,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 23,
+  "fields": {
+    "summary": "222_updated",
+    "description": "222",
+    "status": 3,
+    "created_at": "2022-01-17T10:19:47.150Z",
+    "updated_at": "2022-01-24T07:49:36.934Z",
+    "project": 4,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 24,
+  "fields": {
+    "summary": "new task",
+    "description": "new task",
+    "status": 2,
+    "created_at": "2022-01-17T10:36:25.943Z",
+    "updated_at": "2022-02-17T04:16:44.798Z",
+    "project": 1,
+    "type": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 25,
+  "fields": {
+    "summary": "call to boss",
+    "description": "",
+    "status": 1,
+    "created_at": "2022-01-20T11:07:33.331Z",
+    "updated_at": "2022-01-20T11:07:33.331Z",
+    "project": 2,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 26,
+  "fields": {
+    "summary": "44",
+    "description": "",
+    "status": 1,
+    "created_at": "2022-01-20T11:20:43.704Z",
+    "updated_at": "2022-01-20T11:20:43.704Z",
+    "project": 3,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 27,
+  "fields": {
+    "summary": "55",
+    "description": "The Australian Version of the popular Writing with Symbols 2000 software has some new features, in particular a set of Australian symbols and a spelling list for Australian users.\r\n\r\nIt remains as one of the most flexible support packages for literacy development, and can be used in four ways. An increasingly, schools are using it as a mainstream product, supporting their students with special learning, literacy and/or access needs. Primary schools have found that it offers a different approach to writing, reading and literacy development. It caters to students of all abilities, and helps in fully integrating students who have different needs. Special settings rely on it to provide a range of experiences to students with moderate to severe learning difficulties. Since its introduction quite a few years ago on MS Windows 3.1 computers, it has been the predominant choice for the majority of special schools in their communication and literacy ICT based programs. WWS 2000 Version 2.6 has a number of new additional features over and above the previous V2.0 package. The initial ‘look and feel’ at start-up has been a great success since that launch. The four main modes are clearly indicated and ready for use upon launching the program. They include:\r\n\r\nSymbol Processor: displaying PCS, Rebus or other symbol /graphic/photo wordlists, with voice support\r\nText Processor use with or without voice, with a pictorial spell checker. Functions as a word processor.\r\nGrids for Printing for printed media, including charts, tables, timetables, rosters, posters, badges, flash cards\r\nGrids for Writing use one or more onscreen grids for constructing text, with voice and graphic support\r\nThe user-friendly start-up screen directs and informs the user to the four different ways with which they can work with text, voice, symbols and grids. The WWS 2000 package accommodates a wide range of literacy and communication needs. It can be used in the classroom ouguygyu Grids for Writing use one or h",
+    "status": 2,
+    "created_at": "2022-01-20T11:22:40.859Z",
+    "updated_at": "2022-01-26T18:59:38.569Z",
+    "project": 1,
+    "type": [
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 29,
+  "fields": {
+    "summary": "wwww",
+    "description": "w",
+    "status": 3,
+    "created_at": "2022-01-20T11:57:11.667Z",
+    "updated_at": "2022-01-20T11:57:11.667Z",
+    "project": 1,
+    "type": [
+      2
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 34,
+  "fields": {
+    "summary": "new bug tut",
+    "description": "bug net",
+    "status": 1,
+    "created_at": "2022-01-24T08:11:11.066Z",
+    "updated_at": "2022-01-24T08:11:11.066Z",
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 35,
+  "fields": {
+    "summary": "Bug",
+    "description": "njn",
+    "status": 2,
+    "created_at": "2022-01-24T08:14:35.260Z",
+    "updated_at": "2022-01-24T08:14:35.260Z",
+    "project": 4,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 36,
+  "fields": {
+    "summary": "shopping",
+    "description": "shopping",
+    "status": 1,
+    "created_at": "2022-01-24T08:20:34.921Z",
+    "updated_at": "2022-01-24T08:47:10.751Z",
+    "project": 1,
+    "type": [
+      1
+    ]
+  }
+},
+{
+  "model": "webapp.task",
+  "pk": 43,
+  "fields": {
+    "summary": "new task create",
+    "description": "",
+    "status": 1,
+    "created_at": "2022-02-17T04:22:31.417Z",
+    "updated_at": "2022-02-17T04:22:31.417Z",
+    "project": 1,
+    "type": [
+      1,
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 1,
+  "fields": {
+    "name": "project1_update1",
+    "description": "test project 1",
+    "date_start": "2022-01-31",
+    "date_end": null,
+    "users": [
+      1,
+      2,
+      9,
+      11,
+      12,
+      13
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 2,
+  "fields": {
+    "name": "project 2",
+    "description": "project 2",
+    "date_start": "2022-02-01",
+    "date_end": "2022-02-28",
+    "users": [
+      3,
+      7,
+      8
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 3,
+  "fields": {
+    "name": "project 3",
+    "description": "project 3 gnjhgbjkdfnjkf",
+    "date_start": "2022-02-10",
+    "date_end": null,
+    "users": [
+      1,
+      4,
+      6
+    ]
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 4,
+  "fields": {
+    "name": "project 4",
+    "description": "vjfnbvjkfnv project",
+    "date_start": "2022-01-31",
+    "date_end": null,
+    "users": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 7,
+  "fields": {
+    "name": "new_project",
+    "description": "",
+    "date_start": "2022-02-17",
+    "date_end": null,
+    "users": [
+      12,
+      13
+    ]
+  }
+}
+]
