@@ -1,5 +1,7 @@
 from django import forms
+from django.contrib.auth.models import User
 from django.forms import widgets
+
 
 from webapp.models import Task, Type, Project
 
@@ -21,3 +23,15 @@ class ProjectForm(forms.ModelForm):
     class Meta:
         model = Project
         fields = "__all__"
+
+
+class UsersChooseForm(forms.ModelForm):
+    username = forms.ModelMultipleChoiceField(queryset=User.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
+
+    class Meta:
+        model = User
+        fields = ("username",)
+
+
+
+

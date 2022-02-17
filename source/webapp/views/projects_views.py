@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -21,18 +21,18 @@ class ProjectView(DetailView):
         context = super().get_context_data(**kwargs)
         tasks = self.object.tasks.all()
         context['tasks'] = tasks
-        # users = self.object.users.all()
-        # context['users'] = users
         return context
 
 
-class ProjectCreate(LoginRequiredMixin, CreateView):
+class ProjectCreate(PermissionRequiredMixin, CreateView):
+    permission_required = 'webapp.add_project'
     model = Project
     form_class = ProjectForm
     template_name = 'projects/project_create.html'
 
 
-class ProjectUpdate(LoginRequiredMixin, UpdateView):
+class ProjectUpdate(PermissionRequiredMixin, UpdateView):
+    permission_required = 'webapp.change_project'
     model = Project
     template_name = 'projects/project_update.html'
     form_class = ProjectForm
@@ -42,7 +42,8 @@ class ProjectUpdate(LoginRequiredMixin, UpdateView):
         return reverse('webapp:project_view', kwargs={'pk': self.object.pk})
 
 
-class ProjectDelete(LoginRequiredMixin, DeleteView):
+class ProjectDelete(PermissionRequiredMixin, DeleteView):
+    permission_required = "webapp.delete_project"
     model = Project
     template_name = "projects/project_delete.html"
     context_object_name = 'project'

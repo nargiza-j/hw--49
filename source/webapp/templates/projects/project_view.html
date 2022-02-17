@@ -6,11 +6,18 @@
     <li class="nav-item">
         <a class="nav-link" href="{% url 'webapp:project_task_add' project.pk %}">Add Task</a>
     </li>
+    {% if perms.webapp.change_project %}
     <li class="nav-item">
         <a class="nav-link" href="{% url 'webapp:project_update' project.pk %}">Update Project</a>
     </li>
+        {% endif %}
+        {% if perms.webapp.delete_project %}
     <li class="nav-item">
         <a class="nav-link" href="{% url 'webapp:project_delete' project.pk %}">Delete Project</a>
+    </li>
+        {% endif %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'webapp:users_choose' project.pk %}">Choose users</a>
     </li>
     {% endif %}
 {% endblock %}
