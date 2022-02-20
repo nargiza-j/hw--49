@@ -6,6 +6,8 @@ from django.views.generic import CreateView, ListView
 from webapp.forms import UsersChooseForm
 
 User = get_user_model()
+
+
 class UsersChooseView(CreateView):
     model = User
     template_name = 'users/choose_user.html'

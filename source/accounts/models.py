@@ -17,4 +17,8 @@ class Profile(models.Model):
     class Meta:
         verbose_name = 'Профиль'
         verbose_name_plural = 'Профили'
+        permissions = [
+            ('can_look_list_of_users', 'Может просмотреть страницу со списком пользователей')
+        ]
+
 
