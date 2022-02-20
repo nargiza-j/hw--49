@@ -26,7 +26,7 @@
     <p>Дата начала:{{ project.date_start}}</p>
     <p>Дата окончания: {% if project.date_end %}{{ project.date_end }}{% endif %} </p>
     <p>Описание:{{ project.description }}</p>
-    <h6>Пользователи:{% for user in project.users.all %}{{ user.username }}{% if not forloop.last %},{% endif %}
+    <h6>Пользователи:{% for user_obj in project.users.all %}<a href="{% url 'accounts:user-profile' user_obj.id %}">{{ user_obj.username }}</a>{% if not forloop.last %},{% endif %}
     {% empty %}
             <p>No users yet.</p>
     {% endfor %}
