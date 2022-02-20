@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import PermissionRequiredMixin
 
 from django.urls import reverse
 from django.views.generic import CreateView, ListView
@@ -18,7 +19,8 @@ class UsersChooseView(CreateView):
         return reverse('webapp:project_view', kwargs={'pk': self.object.pk})
 
 
-class UsersListView(ListView):
+class UsersListView(PermissionRequiredMixin, ListView):
     model = User
     template_name = 'users/users_list.html'
     context_object_name = "users_obj"
+    permission_required = "accounts.can_look_list_of_users"

@@ -42,9 +42,11 @@
             <li class="nav-item">
            <a class="nav-link" href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Выход</a>
        </li>
+            {% if perms.accounts.can_look_list_of_users %}
             <li class="nav-item">
            <a class="nav-link" href="{% url 'webapp:users_list' %}?next={{ request.get_full_path }}">List of users</a>
        </li>
+                {% endif %}
         {% endif %}
       </ul>
     </div>
