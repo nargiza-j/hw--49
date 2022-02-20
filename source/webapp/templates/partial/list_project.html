@@ -1,0 +1,28 @@
+{% if projects %}
+        <h1>Projects</h1>
+    {% else %}
+        <h1>No project</h1>
+    {% endif %}
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+    {% for project in projects %}
+        <div class="card border-success" style="width: 18rem;">
+          <div class="card-body text-success">
+              <h5 class="card-title">{{ project.name }}</h5>
+              <p class="card-text">Описание:{{ project.description }}</p>
+              <a href="{{ project.get_absolute_url }}" class="card-link">More...</a>
+              {% if user.is_authenticated %}
+                  {% if perms.webapp.change_project %}
+              <a href="{% url "webapp:project_update" project.pk %}" class="card-link">Update</a>
+                      {% endif %}
+                      {% if perms.webapp.delete_project %}
+              <a href="{% url "webapp:project_delete" project.pk %}" class="card-link">Delete</a>
+                  {% endif %}
+              {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+        {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}

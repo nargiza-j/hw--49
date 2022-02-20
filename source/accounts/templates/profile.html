@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Профиль пользователя {{ user_object.username }}</h1>
+    {% if user_object.profile.avatar %}
+        <img src="{{ user_object.profile.avatar.url }}" width="250" height="250" alt="user avatar">
+    {% endif %}
+    <p>Имя: {{ user_object.first_name }}</p>
+    <p>Фамилия: {{ user_object.last_name }}</p>
+    <p><strong>Email:</strong>{{ user_object.email }}</p>
+    <p>Профиль на GitHube: {{ user_object.profile.profile_url }}</p>
+    <p>О себе: {{ user_object.profile.about_info }}</p>
+    {% include "partial/list_project.html" %}
+{% endblock %}
