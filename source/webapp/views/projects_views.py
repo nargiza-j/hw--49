@@ -31,6 +31,11 @@ class ProjectCreate(PermissionRequiredMixin, CreateView):
     form_class = ProjectForm
     template_name = 'projects/project_create.html'
 
+    def form_valid(self, form):
+        response = super(ProjectCreate, self).form_valid(form)
+        self.object.users.add(self.request.user)
+        return response
+
 
 class ProjectUpdate(PermissionRequiredMixin, UpdateView):
     permission_required = 'webapp.change_project'

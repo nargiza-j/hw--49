@@ -56,13 +56,14 @@ class TaskView(TemplateView):
 
 
 class TaskCreateView(PermissionRequiredMixin, CreateView):
-    permission_required = 'webapp.add_task'
+    permission_required = 'webapp.add_task_in_own_project'
     model = Task
     form_class = TaskForm
     template_name = 'tasks/task_create.html'
 
     def has_permission(self):
-        return super().has_permission() or self.request.user in self.get_object().project.users
+        project = get_object_or_404(Project, pk=self.kwargs.get("pk"))
+        return super().has_permission() and self.request.user in project.users.all()
 
     def form_valid(self, form):
         project = get_object_or_404(Project, pk=self.kwargs.get("pk"))
@@ -74,28 +75,29 @@ class TaskCreateView(PermissionRequiredMixin, CreateView):
 
 
 class TaskUpdateView(PermissionRequiredMixin, UpdateView):
-    permission_required = "webapp.change_task"
+    permission_required = "webapp.change_task_in_own_project"
     model = Task
     template_name = 'tasks/task_update.html'
     form_class = TaskForm
     context_object_name = 'task'
 
-    def has_permission(self):
-        return super().has_permission() or self.request.user == self.get_object().project.users
-
     def get_success_url(self):
-        return reverse('webapp:task_view', kwargs={'pk': self.object.pk})
+        return reverse('webapp:project_view', kwargs={"pk": self.object.project.pk})
+
+    def has_permission(self):
+        return super().has_permission() and self.get_object().project.users.filter(pk=self.request.user.pk).exists()
 
 
 class TaskDeleteView(PermissionRequiredMixin, DeleteView):
-    permission_required = "webapp.delete_task"
     model = Task
     template_name = "tasks/task_delete.html"
     context_object_name = 'task'
     success_url = reverse_lazy('webapp:project_list')
+    permission_required = "webapp.delete_task_in_own_project"
 
     def has_permission(self):
-        return super().has_permission() or self.request.user == self.get_object().project.users
+        return super().has_permission() and self.get_object().project.users.filter(pk=self.request.user.pk).exists()
+
 
 # class TaskUpdateView(View):
 #     def get(self, request, *args, **kwargs):

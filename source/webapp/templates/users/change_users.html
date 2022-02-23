@@ -3,12 +3,14 @@
 {% block title %}
     выбор пользователей
 {% endblock %}
+{% block nav %}
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'webapp:project_view' project.pk %}">Return</a>
+    </li>
+{% endblock %}
 
 {% block content %}
-    <div class="container">
-        <h2>{{ users}}</h2>
         <form method="post">
             {% include "partial/form.html" with button_text="Выбрать" %}
         </form>
-    </div>
 {% endblock %}

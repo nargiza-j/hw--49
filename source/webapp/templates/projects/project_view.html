@@ -3,9 +3,11 @@
 {% block title %}Project {{ project.pk }}{% endblock %}
 {% block nav %}
     {% if user.is_authenticated %}
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'webapp:project_task_add' project.pk %}">Add Task</a>
-    </li>
+        {% if perms.webapp.add_task_in_own_project and request.user in project.users.all %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'webapp:project_task_add' project.pk %}">Add Task</a>
+            </li>
+        {% endif %}
     {% if perms.webapp.change_project %}
     <li class="nav-item">
         <a class="nav-link" href="{% url 'webapp:project_update' project.pk %}">Update Project</a>
@@ -16,9 +18,11 @@
         <a class="nav-link" href="{% url 'webapp:project_delete' project.pk %}">Delete Project</a>
     </li>
         {% endif %}
-    <li class="nav-item">
-        <a class="nav-link" href="{% url 'webapp:users_choose' project.pk %}">Choose users</a>
-    </li>
+        {% if perms.webapp.change_user_in_own_project %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'webapp:change_project_users' project.pk %}">Add users in project</a>
+            </li>
+        {% endif %}
     {% endif %}
 {% endblock %}
 {% block content %}
@@ -41,8 +45,12 @@
               <p class="card-text">Статус: {{ task.status.name }}</p>
               <a href="{% url "webapp:task_view" task.pk %}" class="card-link">More...</a>
               {% if user.is_authenticated %}
-              <a href="{% url "webapp:task_delete" task.pk %}" class="card-link">Delete</a>
-              <a href="{% url "webapp:task_update" task.pk %}" class="card-link">Update</a>
+                  {% if perms.webapp.delete_task_in_own_project and request.user in project.users.all %}
+                        <a href="{% url "webapp:task_delete" task.pk %}" class="card-link">Delete</a>
+                  {% endif %}
+                  {% if perms.webapp.change_task_in_own_project and request.user in project.users.all %}
+                        <a href="{% url "webapp:task_update" task.pk %}" class="card-link">Update</a>
+                  {% endif %}
               {% endif %}
           </div>
         </div>

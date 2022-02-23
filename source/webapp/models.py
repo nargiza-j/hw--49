@@ -53,6 +53,11 @@ class Task(models.Model):
         db_table = 'tasks'
         verbose_name = 'задача'
         verbose_name_plural = 'задачи'
+        permissions = (
+            ("add_task_in_own_project", "Добавлять задачи в свой проект"),
+            ("change_task_in_own_project", "Редактировать задачи в своем проекте"),
+            ("delete_task_in_own_project", "Удалять задачи в своем проекте"),
+        )
 
 
 class Project(models.Model):
@@ -76,3 +81,6 @@ class Project(models.Model):
         db_table = 'projects'
         verbose_name = 'проект'
         verbose_name_plural = 'проекты'
+        permissions = (
+            ("change_user_in_own_project", "Изменять список пользователей в своем проекте"),
+        )

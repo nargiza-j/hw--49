@@ -1,5 +1,5 @@
 from django import forms
-from django.contrib.auth.models import User
+
 from django.forms import widgets
 
 
@@ -22,15 +22,13 @@ class ProjectForm(forms.ModelForm):
 
     class Meta:
         model = Project
-        fields = "__all__"
+        exclude = ("users",)
 
 
-class UsersChooseForm(forms.ModelForm):
-    username = forms.ModelMultipleChoiceField(queryset=User.objects.all(), required=False, widget=forms.CheckboxSelectMultiple)
-
+class ProjectUsersForm(forms.ModelForm):
     class Meta:
-        model = User
-        fields = ("username",)
+        model = Project
+        fields = ("users",)
 
 
 
