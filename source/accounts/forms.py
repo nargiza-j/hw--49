@@ -63,7 +63,7 @@ class PasswordChangeForm(forms.ModelForm):
         return user
 
     class Meta:
-        model = get_user_model()
+        model = User
         fields = ['password', 'password_confirm', 'old_password']
 
 
